@@ -2,18 +2,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.562);
-  padding: 0.5rem 3rem;
+  padding: 0.75rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.4);
   position: sticky;
   top: 0;
   z-index: 1000;
-  /* margin-bottom: 2rem; */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .logo img {
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .logo img:hover {
@@ -22,36 +22,108 @@
 
 .nav {
   display: flex;
-  gap: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
+  gap: 2rem;
   align-items: center;
+}
+
+/* Hamburger button (hidden on desktop) */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: 0.4rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hamburger:active {
+  transform: scale(0.98);
 }
 
 .nav a {
   text-decoration: none;
   font-weight: 500;
   color: #333;
-  transition: color 0.3s ease;
-  font-size: large;
+  transition: color 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
 }
 
 .nav a:hover {
   color: #0070f3;
+  background: rgba(0, 112, 243, 0.08);
+  transform: translateY(-1px);
 }
 
 .button {
   background: #0070f3;
-  color: white;
-  padding: 0.5rem 1rem;
+  color: #fff;
+  padding: 0.45rem 1.1rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 700;
-  transition: background 0.3s ease;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 112, 243, 0.3);
 }
 
 .button:hover {
   background: #005bb5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 91, 181, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+  }
+
+  .hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(200, 200, 200, 0.4);
+  }
+
+  .nav a, .button {
+    font-size: 0.9rem;
+  }
+
+  .logo img {
+    width: 150px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    gap: 0.8rem;
+  }
+
+  .nav a, .button {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .logo img {
+    width: 130px;
+  }
+}
+
+/* When menu is open on mobile */
+.show {
+  display: flex !important;
 }

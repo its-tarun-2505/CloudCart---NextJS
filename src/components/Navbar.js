@@ -1,29 +1,57 @@
 "use client";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 import styles from "./navbar.module.css";
 
 const Navbar = () => {
   const { data: session } = useSession();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (  
-    <div className={styles.container}>
+    <header className={styles.container}>
+      {/* Logo */}
       <Link href="/" className={styles.logo}>
         <img
           src="/assets/logo.png"
           alt="CartCloud Logo"
-          width={200}
-          height={60}
+          width={160}
+          height={50}
         />
       </Link>
-      <nav className={styles.nav}>
-        <Link href="/">Home</Link>
-        <Link href="/products">Products</Link>
-        {!session && <Link href="/login">Login</Link>}
-        {session && <button className={styles.button} onClick={() => signOut()}>Sign Out</button>}
+
+
+      {/* Hamburger Toggle */}
+      <button
+        className={styles.hamburger}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle menu"
+      >
+        {isOpen ? <X size={26} /> : <Menu size={26} />}
+      </button>
+
+      {/* Desktop Nav */}
+      <nav className={`${styles.nav} ${isOpen ? styles.show : ""}`}>
+        <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
+        <Link href="/products" onClick={() => setIsOpen(false)}>Products</Link>
+        {!session && (
+          <Link href="/login" onClick={() => setIsOpen(false)}>Login</Link>
+        )}
+        {session && (
+          <button
+            className={styles.button}
+            onClick={() => {
+              setIsOpen(false);
+              signOut();
+            }}
+          >
+            Sign Out
+          </button>
+        )}
       </nav>
-    </div>
+
+    </header>
   );
 };
 
