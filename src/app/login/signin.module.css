@@ -1,8 +1,8 @@
 .container {
-  background: linear-gradient(135deg, #f9fafb, #e5e7eb);
+  /* background: linear-gradient(135deg, #f9fafb, #e5e7eb); */
   padding: 3rem 4rem;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); */
   text-align: center;
 }
 

@@ -4,12 +4,12 @@ import styles from "./page.module.css";
 
 // Dynamic metadata for each product
 export async function generateMetadata({ params }) {
-  const { id } = params;
+  const { id } = await params;
   const res = await fetch(`https://dummyjson.com/products/${id}`);
   const product = await res.json();
 
   return {
-    title: `${product.title}`,
+    title: `${product.title} - Products Store`,
     description: `Details about ${product.title}`,
   };
 }

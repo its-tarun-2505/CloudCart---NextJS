@@ -4,7 +4,7 @@ import style from "./page.module.css";
 
 //static meta data
 export const metadata = {
-  title : "Products",
+  title : "Products Store - Products List",
   description: "Products of different category like BEAUTY, FRAGRANCES, FURNITURE and GROCERIES",
 };
 

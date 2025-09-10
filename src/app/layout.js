@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: {
     default: "CloudCart-NextJS",
-    template: "%s | CloudCart",
+    // template: "%s | CloudCart",
   },
   description: "E-Commerce Application - by NextJs",
   icons: {
