@@ -2,6 +2,12 @@ import React from "react";
 import Link from "next/link";
 import style from "./page.module.css";
 
+//static meta data
+export const metadata = {
+  title : "Products",
+  description: "Products of different category like BEAUTY, FRAGRANCES, FURNITURE and GROCERIES",
+};
+
 // Fetch products from the API
 const fetchProducts = async () => {
   const res = await fetch("https://dummyjson.com/products");

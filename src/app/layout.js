@@ -14,11 +14,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// meta data
 export const metadata = {
-  title: "CloudCart-NextJS",
+  title: {
+    default: "CloudCart-NextJS",
+    template: "%s | CloudCart",
+  },
   description: "E-Commerce Application - by NextJs",
   icons: {
-    icon: "/assets/fevicon.ico", // custom favicon
+   icon: "/assets/favicon.ico",
   },
 };
 

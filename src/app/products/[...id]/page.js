@@ -2,6 +2,19 @@ import React from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
 
+// Dynamic metadata for each product
+export async function generateMetadata({ params }) {
+  const { id } = params;
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
+  const product = await res.json();
+
+  return {
+    title: `${product.title}`,
+    description: `Details about ${product.title}`,
+  };
+}
+
+
 export const revalidate = 60;
 
 const getProductData = async (id) => {

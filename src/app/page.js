@@ -1,6 +1,10 @@
 import Link from "next/link";
 import style from "./page.module.css";
 
+export const metadata = {
+  title : "Home",
+}
+
 export default function Home() {
   return (
     <div className={style.hero}>
