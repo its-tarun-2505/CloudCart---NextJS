@@ -23,8 +23,6 @@ const groupByCategory = (products) =>
 const Products = async () => {
   const data = await fetchProducts();
 
-  const scrollAmount = 240; // scroll distance in px (~ card width + gap)
-
   return (
     <div className={style.page}>
       <h1 className={style.heading}>Welcome to the Products Page</h1>

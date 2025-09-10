@@ -5,9 +5,13 @@ const handler = NextAuth({
     providers: [
         GithubProvider({
             clientId: process.env.GITHUB_CLIENT_ID,
-            clientSecret: process.env.GITHUB_SECRET
-        })
-    ]
-})
+            clientSecret: process.env.GITHUB_SECRET,
+        }),
+    ],
+    pages: {
+        signIn: "/login",
+    },
+    secret: process.env.NEXTAUTH_SECRET,
+});
 
-export {handler as GET, handler as POST};
+export { handler as GET, handler as POST };
